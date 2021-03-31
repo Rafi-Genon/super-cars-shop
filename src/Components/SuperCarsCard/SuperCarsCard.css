@@ -1,0 +1,32 @@
+body{
+    font-family: 'Oswald', sans-serif;
+}
+.do-margin-on-button{
+    margin-left: 1em;
+}
+.dark-blue-font{
+    color: #363958 !important;
+}
+.orange-highlight{
+    color: #FA804C;
+}
+.do-padding{
+    padding: 1em;
+    padding-bottom: 0;
+}
+.card-radius{
+    border-radius: 1em;
+    border: 0;
+}
+.buy-btn{
+    background-image: linear-gradient(#3d4ff3, #3543bc);
+    border-radius: .7em;
+    padding: 1em 2em;
+}
+@media(max-width:576px){
+        .buy-btn{
+        border-radius: .7em;
+        padding: 1.5em 3em;
+        font-size: 20px;
+    }
+}
