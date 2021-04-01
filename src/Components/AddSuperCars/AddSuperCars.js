@@ -11,8 +11,7 @@ const AddSuperCar = () => {
             price: data.carPrice,
             image: imageURL
         }
-        console.log(carInfo);
-        const url = 'http://localhost:3300/addCar'
+        const url = 'https://afternoon-plateau-17206.herokuapp.com/addCar'
 
         fetch(url, {
             method: 'POST',

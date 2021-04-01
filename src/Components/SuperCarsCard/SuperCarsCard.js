@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { userContext } from '../../App';
+import { Link } from 'react-router-dom';
 import './SuperCarsCard.css'
+
 const SuperCarsCard = (props) => {
+    const [userOrder, setUserOrder] = useContext(userContext)
+
     const { name, price, image } = props.car
+
+    const buyNow = (car) => {
+        const newUserInfo = { ...userOrder }
+        newUserInfo.order = car
+        setUserOrder(newUserInfo)
+    }
     return (
         <div className="col my-3">
             <div className="card h-100 card-radius shadow">
@@ -11,8 +22,12 @@ const SuperCarsCard = (props) => {
                 </div>
                 <div className="d-flex justify-content-around align-items-center mb-3">
                     <h2 className="orange-highlight fw-bold">${price}</h2>
-                    <a href="https://www.facebook.com/rafi.genon/" className="buy-btn btn text-white"><i className="fas fa-shopping-cart"></i> <span
-                        className="do-margin-on-button">BUY NOW</span></a>
+                    <Link to="/addToCart">
+                        <div style={{ border: '2px red solid' }} onClick={() => buyNow(props.car)}>
+                            <i className="fas fa-shopping-cart"></i>
+                            <span className="do-margin-on-button buy-btn btn text-white">BUY NOW</span>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

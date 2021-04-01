@@ -4,7 +4,7 @@ import SuperCarsCard from '../SuperCarsCard/SuperCarsCard';
 const Home = () => {
     const [cars, setCars] = useState([])
     useEffect(() => {
-        fetch('http://localhost:3300/cars')
+        fetch('https://afternoon-plateau-17206.herokuapp.com/cars')
             .then(res => res.json())
             .then(data => setCars(data))
     }, [])
