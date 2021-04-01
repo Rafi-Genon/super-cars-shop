@@ -4,8 +4,7 @@ import Home from './Components/Home/Home';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import NoMatch from './Components/NoMatch/NoMatch';
 import AddSuperCar from './Components/AddSuperCars/AddSuperCars';
@@ -14,6 +13,10 @@ import Cart from './Components/Cart/Cart';
 import { createContext, useState } from 'react';
 import Navbar from './Components/NavBar/NavBar';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import CheckOut from './Components/CheckOut/CheckOut';
+import Admin from './Components/Admin/Admin';
+import ManageCars from './Components/ManageCars/ManageCars';
+import MyOrders from './Components/MyOrders/MyOrders';
 export const userContext = createContext()
 
 function App() {
@@ -32,7 +35,7 @@ function App() {
         <Router>
           <Navbar></Navbar>
           <div>
-            
+
             <Switch>
               <Route exact path="/">
                 <Home />
@@ -40,16 +43,27 @@ function App() {
               <Route path="/home">
                 <Home />
               </Route>
+              <PrivateRoute path="/admin">
+                <Admin></Admin>
+              </PrivateRoute>
               <Route path="/addCar">
                 <AddSuperCar />
               </Route>
+              <Route path="/manageCars">
+                <ManageCars></ManageCars>
+              </Route>
+              <PrivateRoute path="/myOrders">
+                <MyOrders></MyOrders>
+              </PrivateRoute>
               <PrivateRoute path="/addToCart">
                 <Cart></Cart>
               </PrivateRoute>
               <Route path="/log-in">
                 <Login></Login>
               </Route>
-
+              <Route path="/checkOut">
+                <CheckOut></CheckOut>
+              </Route>
               <Route path="/*">
                 <NoMatch />
               </Route>

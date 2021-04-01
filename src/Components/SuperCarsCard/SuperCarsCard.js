@@ -23,7 +23,7 @@ const SuperCarsCard = (props) => {
                 <div className="d-flex justify-content-around align-items-center mb-3">
                     <h2 className="orange-highlight fw-bold">${price}</h2>
                     <Link to="/addToCart">
-                        <div style={{ border: '2px red solid' }} onClick={() => buyNow(props.car)}>
+                        <div onClick={() => buyNow(props.car)}>
                             <i className="fas fa-shopping-cart"></i>
                             <span className="do-margin-on-button buy-btn btn text-white">BUY NOW</span>
                         </div>

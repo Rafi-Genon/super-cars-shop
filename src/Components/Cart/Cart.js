@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { userContext } from '../../App';
 
 const Cart = () => {
     const [userOrderDetails, setUserOrderDetails] = useContext(userContext)
-    
+
     console.log(userOrderDetails);
 
     const placeOrder = () => {
@@ -27,7 +28,7 @@ const Cart = () => {
     return (
         <div>
             <h1>welcome to order page</h1>
-            <button onClick={placeOrder}>checkout plz</button>
+            <Link to="/checkOut"> <button onClick={placeOrder}>checkout plz</button></Link>
         </div>
     );
 };

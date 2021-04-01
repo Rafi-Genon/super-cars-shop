@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import Admin from '../Admin/Admin';
 
 const AddSuperCar = () => {
     const { register, handleSubmit } = useForm();
@@ -42,7 +43,8 @@ const AddSuperCar = () => {
             })
     }
     return (
-        <div>
+        <div className="container">
+            <Admin></Admin>
             <h1>i am adding</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -52,7 +54,6 @@ const AddSuperCar = () => {
                 <br />
                 <input type="file" name="carImage" id="" ref={register} onChange={handleImageUpload} required placeholder="Car Image" />
                 <br />
-                {/* {errors.exampleRequired && <span>This field is required</span>} */}
 
                 <input type="submit" />
             </form>

@@ -12,7 +12,7 @@ const Home = () => {
         <div className="container">
             <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
                 {
-                    cars.map(car => <SuperCarsCard car={car} go={'idan'} key={car._id}></SuperCarsCard>)
+                    cars.map(car => <SuperCarsCard car={car} key={car._id}></SuperCarsCard>)
                 }
             </div>
         </div>
