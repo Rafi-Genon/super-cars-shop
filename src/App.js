@@ -22,11 +22,7 @@ export const userContext = createContext()
 function App() {
   const [userDetails, setUserDetails] = useState({
     name: '',
-    email: '',
-    photo: '',
-    error: '',
-    // success: false,
-    // destinationConfirm: false
+    email: ''
   })
 
   return (
@@ -46,12 +42,12 @@ function App() {
               <PrivateRoute path="/admin">
                 <Admin></Admin>
               </PrivateRoute>
-              <Route path="/addCar">
+              <PrivateRoute path="/addCar">
                 <AddSuperCar />
-              </Route>
-              <Route path="/manageCars">
+              </PrivateRoute>
+              <PrivateRoute path="/manageCars">
                 <ManageCars></ManageCars>
-              </Route>
+              </PrivateRoute>
               <PrivateRoute path="/myOrders">
                 <MyOrders></MyOrders>
               </PrivateRoute>

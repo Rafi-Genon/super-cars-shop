@@ -2,8 +2,8 @@ import React from 'react';
 
 const CheckOut = () => {
     return (
-        <div>
-            <h1>your order placed successfully to the server back home</h1>
+        <div className="container">
+            <h1 style={{ borderRadius: '1em' }} className="bg-success text-center text-white p-2">Your order placed successfully to the server back Home and Buy more</h1>
         </div>
     );
 };

@@ -4,7 +4,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from '../../firebase.config';
 import { useHistory, useLocation } from 'react-router';
-
+import googleLogo from '../Images/googel-logo.png'
 const Login = () => {
     const history = useHistory()
     const location = useLocation()
@@ -29,20 +29,16 @@ const Login = () => {
                 history.replace(from);
                 // ...
             }).catch((error) => {
-                // // Handle Errors here.
-                // var errorCode = error.code;
-                // var errorMessage = error.message;
-                // // The email of the user's account used.
-                // var email = error.email;
-                // // The firebase.auth.AuthCredential type that was used.
-                // var credential = error.credential;
-                // // ...
+                var errorMessage = error.message;
             });
     }
 
     return (
-        <div>
-            <button onClick={googelSignIn}>google sign in</button>
+        <div onClick={googelSignIn} className="d-flex justify-content-between align-content-cente btn mt-5" style={{ border: 'grey 1px solid', borderRadius: '2em', width: '30%', margin: 'auto' }}>
+            <div style={{ width: '50px' }}>
+                <img style={{ backgroundColor: 'red', width: '100%' }} src={googleLogo} alt="" />
+            </div>
+            <p className="pt-2" style={{ fontSize: '20px', paddingRight: '30%', fontWeight: '550' }}>Google Sign In</p>
         </div>
     );
 };

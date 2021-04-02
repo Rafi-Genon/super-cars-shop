@@ -26,7 +26,7 @@ const MyOrders = () => {
         total = total + carPrice
         return (total)
     })
-    
+
     const renderOrders = (orderedCars, index) => {
         const { name, price } = orderedCars.order
         return (
@@ -34,7 +34,7 @@ const MyOrders = () => {
                 <td>{index + 1}</td>
                 <td>{name}</td>
                 <td>1</td>
-                <td>{price}</td>
+                <td>$ {price}</td>
             </tr>
         )
     }
@@ -43,25 +43,27 @@ const MyOrders = () => {
         <div className="container">
             {
                 orderedCars.length === 0 ? <div className="d-flex" style={{ margin: 'auto', marginTop: '10em' }}><Spinner animation="border" variant="primary mx-auto justify-content-center" /></div>
-                    : <Table hover >
-                        <thead className="text-center">
-                            <tr className="table-primary">
-                                <td style={{ width: '50px' }}>Serial</td>
-                                <th>Name</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                            </tr>
-                        </thead>
-                        <tbody className="text-center">
-                            {
-                                orderedCars.map(renderOrders)
-                            }
-                            <tr className="bg-dark text-white">
-                                <td colSpan="3" >Total Price</td>
-                                <td>{total}</td>
-                            </tr>
-                        </tbody>
-                    </Table>
+                    : <div className="shadow my-5" style={{ padding: '2%', borderRadius: '1em' }}>
+                        <Table hover >
+                            <thead className="text-center">
+                                <tr className="table-primary">
+                                    <td style={{ width: '50px' }}>Serial</td>
+                                    <th>Name</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-center">
+                                {
+                                    orderedCars.map(renderOrders)
+                                }
+                                <tr className="bg-dark text-white">
+                                    <td colSpan="3" >Total Price</td>
+                                    <td>$ {total}</td>
+                                </tr>
+                            </tbody>
+                        </Table>
+                    </div>
             }
         </div >
     );

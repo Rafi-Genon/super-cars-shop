@@ -15,7 +15,7 @@ const Navbar = () => {
                         <Link to="/home"><p>Home</p></Link>
                         <Link to="/myOrders"><p>My Orders</p></Link>
                         <Link to="/admin"><p>Admin</p></Link>
-                        <p>CheckOut</p>
+                        <p>Deals</p>
                         {
                             email && name ? <p style={{ color: 'red', fontWeight: '700' }}>{name}</p>
                                 : <Link to="/log-in"><button className="btn btn-warning">Log in</button></Link>
