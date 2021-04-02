@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Spinner, Table } from 'react-bootstrap';
 import Admin from '../Admin/Admin';
 
 const ManageCars = () => {
@@ -13,7 +13,7 @@ const ManageCars = () => {
         fetchCarsData()
     }, [])
 
-    const renderCar = (cars, index, event) => {
+    const renderCar = (cars, index) => {
         return (
             <tr key={index}>
                 <td>{index + 1}</td>
@@ -35,22 +35,24 @@ const ManageCars = () => {
     return (
         <div className="container">
             <Admin></Admin>
-            <h1>this is magandig</h1>
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <td>Serial</td>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        cars.map(renderCar)
-                    }
-                </tbody>
-            </Table>
+            {
+                cars.length === 0 ? <div className="d-flex" style={{ margin: 'auto', marginTop: '10em' }}><Spinner animation="border" variant="primary mx-auto justify-content-center" /></div>
+                    : <Table hover>
+                        <thead className="text-center">
+                            <tr className="table-primary">
+                                <td style={{ width: '50px' }}>Serial</td>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody className="text-center">
+                            {
+                                cars.map(renderCar)
+                            }
+                        </tbody>
+                    </Table>
+            }
         </div>
     );
 };

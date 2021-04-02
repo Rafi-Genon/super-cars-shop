@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Admin = () => {
     return (
-        <div>
+        <div className="container">
             <ul>
                 <Link to="/addCar"><li>Add Car</li></Link>
                 <Link to="/manageCars"><li>Manage Cars</li></Link>
