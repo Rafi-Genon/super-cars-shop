@@ -7,24 +7,36 @@ import { userContext } from '../../App';
 
 const Cart = () => {
     const [userOrderDetails, setUserOrderDetails] = useContext(userContext)
-
     const placeOrder = () => {
-        const url = 'https://afternoon-plateau-17206.herokuapp.com/placeOrder'
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userOrderDetails),
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
+        // const currentDateTime = new Date().toString()
+
+        const today = new Date()
+        const currentDateTime = 'Date:' + today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear() + ',' + ' ' + 'at' + ' ' + today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds()
+
+        const newUserInfo = { ...userOrderDetails }
+        newUserInfo.orderTime = currentDateTime;
+        setUserOrderDetails(newUserInfo)
+        console.log('details befor setTime',userOrderDetails);
+        console.log(currentDateTime);
+        
+            const url = 'https://afternoon-plateau-17206.herokuapp.com/placeOrder'
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userOrderDetails),
             })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-    }
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            }
+
+
 
     const { name, price } = userOrderDetails.order
 

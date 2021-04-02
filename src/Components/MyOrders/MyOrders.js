@@ -14,12 +14,7 @@ const MyOrders = () => {
             )
     }, [loggedInUser.email])
 
-    // let total = 0;
-    // for (let i = 0; i < orderedCars.length; i++) {
-    //     const carPrice = parseInt(orderedCars[i].order.price)
-    //     total = total + carPrice
-    // }
-
+    console.log(orderedCars);
     let total = 0;
     orderedCars.map(car => {
         const carPrice = parseInt(car.order.price)
@@ -28,10 +23,12 @@ const MyOrders = () => {
     })
 
     const renderOrders = (orderedCars, index) => {
+        const { orderTime } = orderedCars
         const { name, price } = orderedCars.order
         return (
             <tr key={index}>
                 <td>{index + 1}</td>
+                <td>{orderTime}</td>
                 <td>{name}</td>
                 <td>1</td>
                 <td>$ {price}</td>
@@ -48,6 +45,7 @@ const MyOrders = () => {
                             <thead className="text-center">
                                 <tr className="table-primary">
                                     <td style={{ width: '50px' }}>Serial</td>
+                                    <td>Order time</td>
                                     <th>Name</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
@@ -58,7 +56,7 @@ const MyOrders = () => {
                                     orderedCars.map(renderOrders)
                                 }
                                 <tr className="bg-dark text-white">
-                                    <td colSpan="3" >Total Price</td>
+                                    <td colSpan="4" >Total Price</td>
                                     <td>$ {total}</td>
                                 </tr>
                             </tbody>
